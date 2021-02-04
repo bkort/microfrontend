@@ -6,4 +6,5 @@ package-lock.json
 LICENSE
 *.ejs
 dist
+build
 coverage
