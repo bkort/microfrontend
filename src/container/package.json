@@ -1,5 +1,5 @@
 {
-  "name": "@simplify/root-config",
+  "name": "@simplify/container",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
     "lint": "eslint src --ext js",
