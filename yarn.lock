@@ -1552,7 +1552,9 @@ __metadata:
     "@babel/eslint-parser": ^7.12.13
     "@babel/plugin-transform-runtime": ^7.12.13
     "@babel/preset-env": ^7.12.13
+    "@babel/preset-react": ^7.12.13
     "@babel/runtime": ^7.12.13
+    "@simplify/utils": "workspace:src/app-utils"
     "@types/jest": ^26.0.20
     "@types/systemjs": ^6.1.0
     concurrently: ^5.3.0
@@ -1569,7 +1571,7 @@ __metadata:
     pretty-quick: ^3.1.0
     serve: ^11.3.2
     single-spa: ^5.9.1
-    webpack: ^5.20.1
+    webpack: ^5.20.2
     webpack-cli: ^4.5.0
     webpack-config-single-spa: ^2.0.0
     webpack-dev-server: ^4.0.0-beta.0
@@ -1607,7 +1609,7 @@ __metadata:
     react: ^17.0.1
     react-dom: ^17.0.1
     single-spa-react: ^4.0.0
-    webpack: ^5.20.1
+    webpack: ^5.20.2
     webpack-cli: ^4.5.0
     webpack-config-single-spa-react: ^2.0.0
     webpack-dev-server: ^4.0.0-beta.0
@@ -1645,7 +1647,7 @@ __metadata:
     react: ^17.0.1
     react-dom: ^17.0.1
     single-spa-react: ^4.0.0
-    webpack: ^5.20.1
+    webpack: ^5.20.2
     webpack-cli: ^4.5.0
     webpack-config-single-spa-react: ^2.0.0
     webpack-dev-server: ^4.0.0-beta.0
@@ -1657,7 +1659,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@simplify/root@workspace:."
   dependencies:
-    "@babel/preset-react": ^7.12.13
+    prettier: ^2.2.1
   languageName: unknown
   linkType: soft
 
@@ -1669,6 +1671,7 @@ __metadata:
     "@babel/eslint-parser": ^7.12.13
     "@babel/plugin-transform-runtime": ^7.12.13
     "@babel/preset-env": ^7.12.13
+    "@babel/preset-react": ^7.12.13
     "@babel/runtime": ^7.12.13
     "@types/jest": ^26.0.20
     "@types/systemjs": ^6.1.0
@@ -1685,7 +1688,7 @@ __metadata:
     jest-cli: ^26.6.3
     prettier: ^2.2.1
     pretty-quick: ^3.1.0
-    webpack: ^5.20.1
+    webpack: ^5.20.2
     webpack-cli: ^4.5.0
     webpack-config-single-spa: ^2.0.0
     webpack-dev-server: ^4.0.0-beta.0
@@ -1930,6 +1933,32 @@ __metadata:
   version: 2.1.6
   resolution: "@types/prettier@npm:2.1.6"
   checksum: c78a6406b0b0d167c3285c84ca63308028517bc772b16960d959ae0ab8947f58c33aac4ba4485ac878f114be230764f7d5582a43115727ba68e5fb59360d5f37
+  languageName: node
+  linkType: hard
+
+"@types/prop-types@npm:*":
+  version: 15.7.3
+  resolution: "@types/prop-types@npm:15.7.3"
+  checksum: bd0eab69d5120ad3784d0c9985f902653d5924707a7f2b3702a330e762dfd61b6494954cb54ad0c52b918ffd6f1e7e27c9270e4442bc15250de348596f2f60cb
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:*":
+  version: 17.0.0
+  resolution: "@types/react-dom@npm:17.0.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: 7ca9351b6c2523327cd7afe40082a37034898f65e9d86700236682efed910ba7c9cec10e9a3b829aa7b804b18791a28743ce468fcb42e9a788bfc33b84137e45
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*":
+  version: 17.0.1
+  resolution: "@types/react@npm:17.0.1"
+  dependencies:
+    "@types/prop-types": "*"
+    csstype: ^3.0.2
+  checksum: 5b490728c5210ea20b20377dd8c69b12ba7283058788d431d8b35ff4d18d03aa3a0f0cc6fe83691c8b9707d3e7ee8e9aae4e50d3989e094c907030d045d0e4e2
   languageName: node
   linkType: hard
 
@@ -3665,6 +3694,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"csstype@npm:^3.0.2":
+  version: 3.0.6
+  resolution: "csstype@npm:3.0.6"
+  checksum: ebdca96d26e1af5604658e6876af29ac1e218750efb587684f2b2b13bb062a397b351586d285f911e6985e03112e56c2aee127d35ae7354cc7d25f3000e22556
+  languageName: node
+  linkType: hard
+
 "damerau-levenshtein@npm:^1.0.6":
   version: 1.0.6
   resolution: "damerau-levenshtein@npm:1.0.6"
@@ -4362,7 +4398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.19.0":
+"eslint@npm:*, eslint@npm:^7.19.0":
   version: 7.19.0
   resolution: "eslint@npm:7.19.0"
   dependencies:
@@ -10575,7 +10611,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:*, webpack@npm:^5.20.1":
+"webpack@npm:*":
   version: 5.20.1
   resolution: "webpack@npm:5.20.1"
   dependencies:
@@ -10608,6 +10644,42 @@ __metadata:
   bin:
     webpack: bin/webpack.js
   checksum: ccd476e3f51f11e35677ae544d4721e5cdcd0c5a16fb1b201c120badcaef36adf28526ec1a102483c7bb9e1d7e9be92de433b43beebec8343894da15d811902d
+  languageName: node
+  linkType: hard
+
+"webpack@npm:^5.20.2":
+  version: 5.20.2
+  resolution: "webpack@npm:5.20.2"
+  dependencies:
+    "@types/eslint-scope": ^3.7.0
+    "@types/estree": ^0.0.46
+    "@webassemblyjs/ast": 1.11.0
+    "@webassemblyjs/wasm-edit": 1.11.0
+    "@webassemblyjs/wasm-parser": 1.11.0
+    acorn: ^8.0.4
+    browserslist: ^4.14.5
+    chrome-trace-event: ^1.0.2
+    enhanced-resolve: ^5.7.0
+    es-module-lexer: ^0.3.26
+    eslint-scope: ^5.1.1
+    events: ^3.2.0
+    glob-to-regexp: ^0.4.1
+    graceful-fs: ^4.2.4
+    json-parse-better-errors: ^1.0.2
+    loader-runner: ^4.2.0
+    mime-types: ^2.1.27
+    neo-async: ^2.6.2
+    schema-utils: ^3.0.0
+    tapable: ^2.1.1
+    terser-webpack-plugin: ^5.1.1
+    watchpack: ^2.0.0
+    webpack-sources: ^2.1.1
+  peerDependenciesMeta:
+    webpack-cli:
+      optional: true
+  bin:
+    webpack: bin/webpack.js
+  checksum: c5dcc59f7d151541836f9da0b70eb8bb2e5ef5065200cbca5021c73d38f1693d6bc09d8b963ce34fe13d86e93cb8c818c09bcbc60d51ae30efc55e579bb40eb6
   languageName: node
   linkType: hard
 

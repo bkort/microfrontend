@@ -8,6 +8,6 @@
     "build": "yarn workspaces foreach -pt run build"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.12.13"
+    "prettier": "^2.2.1"
   }
 }
