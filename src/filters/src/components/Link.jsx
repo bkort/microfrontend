@@ -3,7 +3,7 @@ import { NavLink as BNavLink } from 'react-bootstrap'
 
 export const NavLink = ({ to = '/', children = 'Default' }) => {
   return (
-    <LinkContainer to={to}>
+    <LinkContainer to={to} exact={to === '/'}>
       <BNavLink>{children}</BNavLink>
     </LinkContainer>
   )
@@ -11,7 +11,7 @@ export const NavLink = ({ to = '/', children = 'Default' }) => {
 
 export const Link = ({ to = '/', children = 'Default' }) => {
   return (
-    <LinkContainer to={to}>
+    <LinkContainer to={to} exact={to === '/'}>
       <BNavLink>{children}</BNavLink>
     </LinkContainer>
   )

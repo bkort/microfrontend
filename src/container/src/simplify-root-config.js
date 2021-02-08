@@ -10,6 +10,11 @@ registerApplication({
   name: '@simplify/products',
   app: () => System.import('@simplify/products'),
   activeWhen: ['/products'],
+  customProps: {
+    domElementGetter: function () {
+      return document.getElementById('products')
+    },
+  },
 })
 
 start({

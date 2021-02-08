@@ -17,7 +17,10 @@ export default function Root(props) {
                 <NavLink to="/about">About</NavLink>
               </Nav>
             </Col>
-            <Col sm={10}>Column 2</Col>
+            <Col sm={10}>
+              Products
+              <div id="products"></div>
+            </Col>
           </Row>
         </Container>
       </BrowserRouter>
