@@ -1,5 +1,11 @@
-import React from "react";
+import React from 'react'
+import NavBar from './components/NavBar'
 
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  return (
+    <>
+      <NavBar />
+      <section>{props.name} is mounted!</section>
+    </>
+  )
 }

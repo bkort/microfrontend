@@ -12,6 +12,13 @@
     "start:products": "yarn workspace @simplify/products start"
   },
   "devDependencies": {
-    "prettier": "^2.2.1"
+    "@babel/plugin-transform-arrow-functions": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.13",
+    "prettier": "^2.2.1",
+    "react-router-bootstrap": "^0.25.0"
+  },
+  "dependencies": {
+    "react-bootstrap": "^1.4.3",
+    "react-router-dom": "^5.2.0"
   }
 }
