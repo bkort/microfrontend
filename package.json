@@ -5,7 +5,11 @@
     "src/*"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach -pt run build"
+    "build": "yarn workspaces foreach -pt run build",
+    "start": "yarn workspaces foreach -pt run start",
+    "start:container": "yarn workspace @simplify/container start",
+    "start:filters": "yarn workspace @simplify/filters start",
+    "start:products": "yarn workspace @simplify/products start"
   },
   "devDependencies": {
     "prettier": "^2.2.1"
