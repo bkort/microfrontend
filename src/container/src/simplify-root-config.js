@@ -1,20 +1,17 @@
-import { registerApplication, start } from "single-spa";
+import { registerApplication, start } from 'single-spa'
 
 registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
-    System.import(
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-    ),
-  activeWhen: ["/"],
-});
+  name: '@simplify/filters',
+  app: () => System.import('@simplify/filters'),
+  activeWhen: ['/'],
+})
 
-// registerApplication({
-//   name: "@simplify/navbar",
-//   app: () => System.import("@simplify/navbar"),
-//   activeWhen: ["/"]
-// });
+registerApplication({
+  name: '@simplify/products',
+  app: () => System.import('@simplify/products'),
+  activeWhen: ['/products'],
+})
 
 start({
   urlRerouteOnly: true,
-});
+})
