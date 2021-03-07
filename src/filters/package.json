@@ -39,7 +39,7 @@
     "dev": "webpack serve --mode=development --hot --inline --open",
     "build:dev": "webpack --mode=development --hide-modules",
     "build": "webpack --mode=production",
-    "serve": "yarn build && hs ./dist -p 3011 -o --cors"
+    "serve": "yarn build && hs ./dist -p 3011 -o -c-1 --cors"
   },
   "eslintConfig": {
     "extends": [

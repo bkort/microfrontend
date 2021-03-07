@@ -10,7 +10,7 @@ const distFolder = path.resolve(process.cwd(), 'dist')
 
 var config = {
   entry: {
-    filters: path.join(__dirname, 'src/index.js')
+    app: path.join(__dirname, 'src/index.js')
   },
   output: {
     filename: '[name].js',
