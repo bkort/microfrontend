@@ -5,15 +5,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+const distFolder = path.resolve(process.cwd(), 'dist')
+
+var config = {
   entry: {
     container: path.join(__dirname, 'src/index.js')
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(process.cwd(), 'dist')
+    path: distFolder
   },
-
+  devServer: {
+    contentBase: distFolder,
+    compress: true,
+    port: 3010
+  },
   module: {
     rules: [
       {
@@ -34,7 +40,8 @@ module.exports = {
         loader: 'file-loader',
         // exclude: [/\.(html?)$/, /\.(ts|tsx|js|jsx)$/, /\.css$/, /\.scss$/, /\.json$/],
         options: {
-          name: '[path][name].[ext]'
+          name: '[name].[contenthash].[ext]',
+          outputPath: 'assets'
         }
       }
     ]
@@ -52,11 +59,20 @@ module.exports = {
         {
           context: 'public',
           from: '**/*',
-          to: path.join(__dirname, 'dist/')
+          to: path.join(__dirname, 'dist/'),
+          globOptions: {
+            dot: true,
+            ignore: ['**/index.html', '**/temp/**']
+          }
         }
       ]
     }),
-    new HtmlWebpackPlugin({ template: './public/index.html' })
+    new HtmlWebpackPlugin({
+      title: 'Container',
+      templateParameters: {
+        PUBLIC_URL: '/'
+      }
+    })
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -65,4 +81,16 @@ module.exports = {
     }
   },
   stats: 'minimal'
+}
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map'
+  }
+
+  if (argv.mode === 'production') {
+    config.stats = 'normal'
+  }
+
+  return config
 }
