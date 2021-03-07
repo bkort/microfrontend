@@ -12,11 +12,15 @@
     "react-redux": "^7.2.2",
     "react-scripts": "4.0.3"
   },
+  "devDependencies": {
+    "@simplify/webpack-config": "*",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack --env=development --hide-modules --watch",
+    "build:dev": "webpack --env=development --hide-modules",
+    "build": "webpack --env=production"
   },
   "eslintConfig": {
     "extends": "react-app"

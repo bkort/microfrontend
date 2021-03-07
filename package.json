@@ -2,5 +2,31 @@
   "private": true,
   "workspaces": [
     "src/*"
-  ]
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach -pt run build",
+    "build:container": "yarn workspace @simplify/container build",
+    "build:products": "yarn workspace @simplify/products build",
+    "build:filters": "yarn workspace @simplify/filters build",
+    "start:all": "yarn workspaces foreach -pt run start",
+    "start:filters": "yarn workspace @simplify/filters start",
+    "start:container": "yarn workspace @simplify/container start",
+    "start:products": "yarn workspace @simplify/products start",
+    "start": "concurrently \"yarn start:container\" \"yarn start:products\" \"yarn start:filters\""
+  },
+  "dependencies": {
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/concurrently": "^6",
+    "@types/eslint": "^7",
+    "concurrently": "^6.0.0",
+    "eslint": "^7.21.0",
+    "tailwindcss": "^2.0.3"
+  },
+  "resolutions": {
+    "ts-node": "^9.0.0",
+    "ts-pnp": "^1.2.0",
+    "typescript": "4.1.5"
+  }
 }
