@@ -1,8 +1,10 @@
 import { Counter } from './features/counter/Counter'
 import { Col, Nav, Row } from 'react-bootstrap'
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link, NavLink as RouterNavLink } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import MicroFrontend from './utils/MicroFrontend'
+import Header from './components/Header'
+import { NavLink } from 'reactstrap'
 
 function PageNotFound() {
   return <h2>404 - Page Not Found (Container)</h2>
@@ -22,13 +24,14 @@ function Users() {
 
 function Filters({ history }) {
   console.log(history)
-  return <MicroFrontend history={history} host="http://localhost:3011" name="Filters" /> // process.env.MF_FILTERS_HOST
+  return <MicroFrontend history={history} host="http://localhost:3011" name="filters" /> // process.env.MF_FILTERS_HOST
 }
 
 const App = () => {
   return (
     <>
       <Router>
+        <Header />
         <div className="p-3">
           <Row>
             <Col md={2}>
@@ -54,7 +57,9 @@ const App = () => {
                 <nav>
                   <ul>
                     <li>
-                      <NavLink to="/filters">Filters</NavLink>
+                      <NavLink tag={RouterNavLink} to="/filters">
+                        Filters
+                      </NavLink>
                     </li>
                   </ul>
                 </nav>
