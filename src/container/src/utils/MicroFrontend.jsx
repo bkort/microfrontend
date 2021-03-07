@@ -24,15 +24,17 @@ class MicroFrontend extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log(this.props)
     const { name, window } = this.props
 
     window[`unmount${name}`] && window[`unmount${name}`](`${name}-container`)
   }
 
   renderMicroFrontend() {
+    console.log(this.props)
     const { name, window, history } = this.props
 
-    window[`render${name}`] && window[`render${name}`](`${name}-container`, history)
+    window[`render${name}`](`${name}-container`, history)
   }
 
   render() {

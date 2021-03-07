@@ -10,7 +10,7 @@ const Header = props => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Microfrontend Demo</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
@@ -19,13 +19,7 @@ const Header = props => {
                 About
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink tag={RouterNavLink} to="/filters/about">
-                Filters About
-              </NavLink>
-            </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>

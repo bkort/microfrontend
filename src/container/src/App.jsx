@@ -1,10 +1,10 @@
-import { Counter } from './features/counter/Counter'
-import { Col, Nav, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import { BrowserRouter as Router, Switch, Route, Link, NavLink as RouterNavLink } from 'react-router-dom'
-import { LinkContainer } from 'react-router-bootstrap'
-import MicroFrontend from './utils/MicroFrontend'
+
+// import MicroFrontend from './utils/MicroFrontend'
+import MicroFrontend from './utils/MicroFrontendHook'
 import Header from './components/Header'
-import { NavLink } from 'reactstrap'
+import { Nav, NavLink, NavItem } from 'reactstrap'
 
 function PageNotFound() {
   return <h2>404 - Page Not Found (Container)</h2>
@@ -23,8 +23,11 @@ function Users() {
 }
 
 function Filters({ history }) {
-  console.log(history)
-  return <MicroFrontend history={history} host="http://localhost:3011" name="filters" /> // process.env.MF_FILTERS_HOST
+  return (
+    <>
+      <MicroFrontend history={history} host="http://localhost:3011" name="Filters" />
+    </>
+  ) // process.env.MF_FILTERS_HOST
 }
 
 const App = () => {
@@ -35,34 +38,42 @@ const App = () => {
         <div className="p-3">
           <Row>
             <Col md={2}>
-              <Nav defaultActiveKey="/home" className="flex-column">
-                <LinkContainer to="/">
-                  <Nav.Link>Home</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/about">
-                  <Nav.Link>About</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/users">
-                  <Nav.Link>Users</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/filters">
-                  <Nav.Link>Filters</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/filters/home">
-                  <Nav.Link>Filters Home</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/filters/about">
-                  <Nav.Link>Filters About</Nav.Link>
-                </LinkContainer>
-                <nav>
-                  <ul>
-                    <li>
-                      <NavLink tag={RouterNavLink} to="/filters">
-                        Filters
-                      </NavLink>
-                    </li>
-                  </ul>
-                </nav>
+              <Nav vertical>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/home">
+                    Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/about">
+                    About
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/users">
+                    Users
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/filters">
+                    Filters Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/filters/home">
+                    Filters Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/filters/about">
+                    Filters About
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RouterNavLink} to="/filters/users">
+                    Filters Users
+                  </NavLink>
+                </NavItem>
               </Nav>
             </Col>
             <Col md={10}>
@@ -81,10 +92,6 @@ const App = () => {
               </Switch>
             </Col>
           </Row>
-
-          {/* <div className="App">
-            <Counter />
-          </div> */}
         </div>
       </Router>
     </>
