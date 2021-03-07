@@ -4,6 +4,9 @@
     "src/*"
   ],
   "scripts": {
+    "dev:container": "yarn workspace @simplify/container dev",
+    "dev:products": "yarn workspace @simplify/products dev",
+    "dev:filters": "yarn workspace @simplify/filters dev",
     "build": "yarn workspaces foreach -pt run build",
     "build:container": "yarn workspace @simplify/container build",
     "build:products": "yarn workspace @simplify/products build",

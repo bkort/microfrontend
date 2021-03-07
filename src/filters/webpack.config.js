@@ -4,12 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebpackAssetsManifest = require('webpack-assets-manifest')
 
 const distFolder = path.resolve(process.cwd(), 'dist')
 
 var config = {
   entry: {
-    container: path.join(__dirname, 'src/index.js')
+    filters: path.join(__dirname, 'src/index.js')
   },
   output: {
     filename: '[name].js',
@@ -19,7 +20,8 @@ var config = {
   devServer: {
     contentBase: distFolder,
     compress: true,
-    port: 3010
+    port: 3011,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -69,11 +71,12 @@ var config = {
       ]
     }),
     new HtmlWebpackPlugin({
-      title: 'Container',
+      title: 'Filters',
       templateParameters: {
         PUBLIC_URL: '/'
       }
-    })
+    }),
+    new WebpackAssetsManifest({})
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -81,12 +84,17 @@ var config = {
       src: path.resolve(__dirname, 'src')
     }
   },
-  stats: 'minimal'
+  stats: 'minimal',
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  }
 }
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     config.devtool = 'source-map'
+    config.plugins.push(new webpack.HotModuleReplacementPlugin())
   }
 
   if (argv.mode === 'production') {
